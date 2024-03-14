@@ -40,15 +40,15 @@ public class Swaglabs {
         /*
         driver.findElement(By.xpath("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//div[@class='pricebar']/child::button")).click();
         */
-
-        xpathOfDifferentProducts("Sauce Labs Backpack");
+        String item="Sauce Labs Backpack";
+        xpathOfDifferentProducts(item);
 
         driver.findElement(By.className("shopping_cart_link")).click();
 
         // Locate elements representing items in the cart
         List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
         // Assert that items "by name" are present in the cart
-        String itemName=driver.findElement(By.xpath("//div[text()='Sauce Labs Backpack']")).getText();
+        String itemName=driver.findElement(By.xpath("//div[text()='"+item+"']")).getText();
         Assert.assertEquals(itemName,"Sauce Labs Backpack" ,"Items not found in the cart");
         //driver.quit();
 
